@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>السلة | EL TOHAMY</title><link rel="stylesheet" href="../css/style.css"><style>.cart-page{padding:145px 8% 100px;min-height:80vh}.cart-page h1{font:500 clamp(48px,7vw,80px) Georgia,serif;margin-bottom:45px}.cart-layout{display:grid;grid-template-columns:1fr 350px;gap:40px}.items{display:flex;flex-direction:column;gap:15px}.item{display:grid;grid-template-columns:120px 1fr auto;gap:20px;align-items:center;padding:15px;background:#111;border:1px solid #222}.item img{width:120px;height:120px;object-fit:cover}.item h2{font:500 22px Georgia,serif}.item p{color:#c9a96e;margin-top:5px}.qty{display:flex;align-items:center;gap:10px;margin-top:12px}.qty button{width:28px;height:28px;background:#1b1b1b;color:#eee;border:1px solid #333}.remove{background:none;border:0;color:#777;cursor:pointer}.summary{background:#111;border:1px solid #222;padding:28px;height:max-content}.summary h2{font:500 28px Georgia,serif;margin-bottom:25px}.total{display:flex;justify-content:space-between;border-top:1px solid #333;padding-top:20px;margin-top:20px}.checkout{width:100%;margin-top:25px;padding:15px;background:#c9a96e;border:1px solid #c9a96e;color:#111;cursor:pointer}.empty{color:#888;padding:50px 0}@media(max-width:800px){.cart-page{padding:115px 6% 70px}.cart-layout{grid-template-columns:1fr}.item{grid-template-columns:80px 1fr}.item img{width:80px;height:80px}.item .remove{grid-column:2}}</style><style>
+.contact-float{position:fixed;right:22px;bottom:22px;z-index:2000;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.contact-float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#171717;border:1px solid rgba(201,169,110,.45);color:#c9a96e;font-size:21px;box-shadow:0 8px 25px rgba(0,0,0,.35);transition:.25s}
+.contact-float a:hover{transform:translateY(-3px);background:#c9a96e;color:#0b0b0b}
+.contact-float .wa{background:#159447;color:#fff;border-color:#159447;font-size:24px}
+.contact-float .wa:hover{background:#20b85b;color:#fff}
+.contact-details{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px;max-width:650px}
+.contact-card{padding:22px;background:#151515;border:1px solid rgba(255,255,255,.07)}
+.contact-card span{display:block;color:#777;font-size:11px;letter-spacing:2px;margin-bottom:7px}
+.contact-card a{color:#c9a96e}
+@media(max-width:650px){.contact-float{right:15px;bottom:15px}.contact-float a{width:48px;height:48px}.contact-details{grid-template-columns:1fr}}
+
+.contact-float .wa.watch-wa{width:62px;height:62px;border-radius:50%;position:relative;background:#0b0b0b;border:2px solid #c9a96e;color:#c9a96e;box-shadow:0 0 0 5px rgba(201,169,110,.08),0 10px 30px rgba(0,0,0,.5)}
+.contact-float .wa.watch-wa:before,.contact-float .wa.watch-wa:after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:17px;height:7px;background:#c9a96e;border-radius:3px;z-index:-1}
+.contact-float .wa.watch-wa:before{top:-8px}.contact-float .wa.watch-wa:after{bottom:-8px}
+.contact-float .wa.watch-wa .watch-face{width:46px;height:46px;border:1px solid #c9a96e;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;font-size:21px}
+.contact-float .wa.watch-wa .watch-face:before{content:"";position:absolute;width:1px;height:13px;background:#c9a96e;top:8px;left:22px;transform-origin:bottom;transform:rotate(25deg)}
+.contact-float .wa.watch-wa .watch-face:after{content:"";position:absolute;width:1px;height:11px;background:#c9a96e;top:12px;left:22px;transform-origin:bottom;transform:rotate(140deg)}
+@media(max-width:650px){.contact-float .wa.watch-wa{width:58px;height:58px}.contact-float .wa.watch-wa .watch-face{width:43px;height:43px}}
+</style></head><body>
+<header class="header"><a class="logo" href="../index.html"><span>EL</span> TOHAMY<small>LUXURY WATCHES</small></a><nav><a href="../index.html">الرئيسية</a><a href="../shop/index.html">المتجر</a><a href="../index.html#about">عن EL TOHAMY</a><a href="../index.html#contact">تواصل معنا</a></nav><button class="mobile-menu-btn" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+  <a class="cart-link" href="index.html">السلة <b id="cartCount">0</b></a></header>
+<div class="mobile-menu" aria-hidden="true">
+  <a href="../index.html" class="mobile-menu-link home-link">الرئيسية</a>
+  <a href="../shop/index.html" class="mobile-menu-link shop-link">المتجر</a>
+  <a href="../index.html#about" class="mobile-menu-link about-link">عن EL TOHAMY</a>
+  <a href="../index.html#contact" class="mobile-menu-link contact-link">تواصل معنا</a>
+  <a href="../cart/index.html" class="mobile-menu-link">السلة <span id="mobileCartCount">0</span></a>
+</div>
+
+<main class="cart-page"><p class="eyebrow">YOUR SELECTION</p><h1>سلة المشتريات</h1><div class="cart-layout"><div class="items" id="items"></div><aside class="summary"><h2>ملخص الطلب</h2><div class="total"><span>الإجمالي</span><strong id="total">0 ج.م</strong></div><button class="checkout" id="checkout">إتمام الطلب</button></aside></div></main>
+<footer><div class="logo"><span>EL</span> TOHAMY<small>LUXURY WATCHES</small></div><p>لأن التفاصيل الصغيرة تصنع الفرق الكبير.</p><div class="copyright">© 2026 EL TOHAMY. جميع الحقوق محفوظة.</div><a href="../admin/index.html" style="display:inline-block;margin-top:16px;color:#555;font-size:10px">إدارة المتجر</a></footer>
+<script src="../js/app.js"></script><script src="../js/products.js"></script><script>
+const box=document.getElementById("items"),total=document.getElementById("total");
+function renderCart(){const c=getCart();if(!c.length){box.innerHTML='<div class="empty">السلة فارغة حاليًا. <a href="../shop/index.html" style="color:#c9a96e">اذهب إلى المتجر</a></div>';total.textContent="0 ج.م";return}let sum=0;box.innerHTML=c.map(i=>{sum+=i.price*i.qty;return `<div class="item"><img src="${i.image}" alt="${i.name}"><div><h2>${i.name}</h2><p>${i.priceText}</p><div class="qty"><button data-action="minus" data-id="${i.id}">−</button><b>${i.qty}</b><button data-action="plus" data-id="${i.id}">+</button></div></div><button class="remove" data-action="remove" data-id="${i.id}">حذف</button></div>`}).join("");total.textContent=sum.toLocaleString("en-US")+" ج.م";box.querySelectorAll("[data-action]").forEach(b=>b.onclick=()=>change(b.dataset.id,b.dataset.action))}
+function change(id,action){let c=getCart(),i=c.find(x=>x.id===id);if(!i)return;if(action==="plus")i.qty++;if(action==="minus")i.qty--;if(action==="remove"||i.qty<=0)c=c.filter(x=>x.id!==id);saveCart(c);renderCart()}
+document.getElementById("checkout").onclick=()=>{
+  const c=getCart(); if(!c.length){alert("السلة فارغة.");return}
+  const lines=c.map(i=>`• ${i.name} × ${i.qty} — ${(i.price*i.qty).toLocaleString("en-US")} ج.م`).join("\\n");
+  const sum=c.reduce((t,i)=>t+i.price*i.qty,0);
+  const msg=`مرحبًا EL TOHAMY، أريد طلب:\\n${lines}\\n\\nالإجمالي: ${sum.toLocaleString("en-US")} ج.م`;
+  window.open("https://wa.me/201104739497?text="+encodeURIComponent(msg),"_blank");
+};
+renderCart();
+</script>
+<div class="contact-float">
+  <a class="wa watch-wa" href="https://wa.me/201104739497" target="_blank" rel="noopener" aria-label="واتساب"><span class="watch-face">⌁</span></a>
+  <a href="tel:01104739497" aria-label="اتصال">☎</a>
+</div>
+
+<script>
+(()=>{const b=document.querySelector('.mobile-menu-btn'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',()=>{const open=m.classList.toggle('open');b.setAttribute('aria-expanded',open);m.setAttribute('aria-hidden',!open);b.textContent=open?'×':'☰'});m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='☰'}));})();
+</script>
+</body></html>

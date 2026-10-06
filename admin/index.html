@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة التحكم | EL TOHAMY</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div id="login" class="login-screen">
+  <div class="login-card">
+    <div class="admin-logo"><span>EL</span> TOHAMY<small>STORE ADMIN</small></div>
+    <p class="muted">تسجيل الدخول إلى إدارة المتجر</p>
+    <input id="pin" type="password" inputmode="numeric" placeholder="رمز الدخول">
+    <button id="loginBtn" class="primary">دخول لوحة التحكم</button>
+    <p id="loginError" class="error"></p>
+    <a href="../index.html" class="back-link">← العودة للموقع</a>
+  </div>
+</div>
+
+<div id="dashboard" class="hidden">
+<header class="admin-header">
+  <div class="admin-logo"><span>EL</span> TOHAMY<small>STORE ADMIN</small></div>
+  <div class="header-actions"><a href="../index.html" target="_blank">فتح المتجر ↗</a><button id="logout">خروج</button></div>
+</header>
+<main class="admin-main">
+  <div class="page-title">
+    <div><p class="eyebrow">STORE MANAGEMENT</p><h1>إدارة المنتجات</h1><p class="muted">أضف وعدّل المنتجات بسهولة، والتغييرات تظهر مباشرة في المتجر.</p></div>
+    <button id="newProduct" class="primary">＋ إضافة منتج</button>
+  </div>
+
+  <div class="demo-ribbon">DEMO SHOWCASE · البيانات تجريبية للعرض فقط</div><div class="stats">
+    <div><span>المنتجات</span><strong id="count">0</strong></div>
+    <div><span>منتجات مميزة</span><strong id="featuredCount">0</strong></div>
+    <div><span>واتساب الطلبات</span><strong>01104739497</strong></div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head"><div><h2>المنتجات الحالية</h2><p class="muted">إضافة، تعديل، نسخ وحذف المنتجات — وكل تغيير يظهر مباشرة في الـ Demo.</p></div><button id="reset" class="ghost danger">استعادة المنتجات الأصلية</button></div>
+    <div class="list-tools"><input id="adminSearch" type="search" placeholder="ابحث باسم المنتج أو التصنيف..." aria-label="البحث في المنتجات"></div>
+    <div id="productList" class="product-list"></div>
+  </section>
+
+  <section id="editor" class="panel editor hidden">
+    <div class="panel-head"><h2 id="editorTitle">إضافة منتج</h2><button id="closeEditor" class="ghost">إغلاق</button></div>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+      <div class="form-grid">
+        <label>اسم المنتج<input id="name" required placeholder="مثال: Royal Black"></label>
+        <label>السعر بالجنيه المصري<input id="price" required type="number" min="0" placeholder="12500"></label>
+        <label class="full">الوصف<textarea id="desc" required placeholder="وصف قصير وأنيق للساعة"></textarea></label>
+        <label>الخامة<input id="material" placeholder="Stainless Steel"></label>
+        <label>اللون<input id="color" placeholder="Black"></label>
+        <label>الحركة<input id="movement" placeholder="Quartz"></label>
+        <label>مقاومة الماء<input id="water" placeholder="50M"></label>
+        <label>التصنيف<select id="category"><option>رجالي</option><option>Luxury</option><option>كلاسيك</option><option>جديد</option><option>إكسسوارات</option></select></label>
+        <label>الشارة <input id="badge" placeholder="جديد / الأكثر مبيعًا"></label>
+        <label class="full">رابط صورة المنتج<input id="image" placeholder="https://..."></label>
+        <label class="upload full">أو ارفع صورة من جهازك<input id="imageFile" type="file" accept="image/*"><small>يفضل صورة أقل من 1.5MB</small></label>
+        <label class="check"><input id="featured" type="checkbox"> إظهار المنتج ضمن الاختيارات المميزة في الرئيسية</label>
+      </div>
+      <div id="preview" class="preview hidden"><img id="previewImg" alt="معاينة"></div>
+      <div class="form-actions"><button class="primary" type="submit">حفظ المنتج</button><button class="ghost" type="button" id="cancel">إلغاء</button></div>
+    </form>
+  </section>
+
+  <section class="panel help">
+    <h2>طريقة الاستخدام</h2>
+    <div class="steps"><div><b>01</b><p>اضغط «إضافة منتج»</p></div><div><b>02</b><p>اكتب البيانات وارفع الصورة</p></div><div><b>03</b><p>اضغط حفظ، وسيظهر المنتج في المتجر</p></div></div>
+  </section>
+</main>
+<footer>EL TOHAMY — Store Administration</footer>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

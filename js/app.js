@@ -1,0 +1,7 @@
+const CART_KEY="el_tohamy_cart";const WISH_KEY="el_tohamy_wishlist";
+function getCart(){return JSON.parse(localStorage.getItem(CART_KEY)||"[]")}
+function saveCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));updateCartCount()}
+function updateCartCount(){const n=document.getElementById("cartCount");if(n)n.textContent=getCart().reduce((s,i)=>s+i.qty,0)}
+function toast(msg){let t=document.getElementById("demoToast");if(!t){t=document.createElement("div");t.id="demoToast";t.style.cssText="position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);padding:12px 18px;background:#151515;border:1px solid rgba(201,169,110,.4);color:#f4f1e9;z-index:9999;opacity:0;transition:.3s;font-size:12px;box-shadow:0 10px 30px #000";document.body.appendChild(t)}t.textContent=msg;t.style.opacity="1";t.style.transform="translate(-50%,0)";clearTimeout(t._timer);t._timer=setTimeout(()=>{t.style.opacity="0";t.style.transform="translate(-50%,20px)"},1800)}
+function addProduct(product,button){const c=getCart(),found=c.find(i=>i.id===product.id);if(found)found.qty++;else c.push({...product,qty:1});saveCart(c);toast("تمت إضافة "+product.name+" إلى السلة ✓");if(button){const old=button.textContent;button.textContent="تمت الإضافة ✓";setTimeout(()=>button.textContent=old,1200)}}
+document.addEventListener("DOMContentLoaded",updateCartCount);
